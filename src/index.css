@@ -1,3 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --clr-primary: #000929;
+  --clr-secondary: #A0A2AF;
+
+  --clr-accent: #27227d;
+  --bg-primary: #F7F7FD;
+  --bg-secondary: #E5E3F8;
+}
+
+:root {
+  --clr-white: #fff;
+  --clr-black: #000;
+
+  --font-primary: "Roboto", sans-serif; 
+  --font-secondary:"Open Sans", sans-serif;
+  
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--clr-primary);
+  background-color: var(--bg-primary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+section, footer {
+  margin: 4rem 0 0;
+}
+
+a {
+  text-decoration: none;
+}
+img{
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-primary);
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.65rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 0;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  body{
+    font-size: 1rem;
+  }
+  section, footer {
+    margin: 7rem 0 0;
+  }
+  p {
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.825rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+}
