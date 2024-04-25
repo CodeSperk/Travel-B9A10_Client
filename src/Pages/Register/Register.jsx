@@ -9,9 +9,9 @@ const Register = () => {
   
       
       <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
-        <section className="flex flex-col md:flex-row bg-[var(--clr-accent)] max-w-[800px] mx-auto text-white rounded-xl shadow-2xl">
+        <section className="flex flex-col md:flex-row bg-[var(--clr-accent)] max-w-[800px] min-h-[500px] mx-auto text-white rounded-xl shadow-2xl">
           {/* Welcome section */}
-          <div className="bg-cover bg-center bg-no-repeat w-full md:w-7/12 min-h-96 rounded-b-[300px] md:rounded-none relative rounded-l-xl" style={{backgroundImage:`url(${loginBg})`}}>
+          <div className="bg-cover bg-center bg-no-repeat w-full md:w-7/12 min-h-96 rounded-b-[300px] md:rounded-l-xl relative " style={{backgroundImage:`url(${loginBg})`}}>
               <div className="absolute w-full h-full flex flex-col items-center justify-between bg-[#27227d] bg-opacity-30 p-8 md:p-12 rounded-l-xl">
                 <h4 className="uppercase font-bold text-center">
                   Travel is the only thing you buy that makes you richer
@@ -104,7 +104,7 @@ const Register = () => {
             
           </form>
         </section>
-        </main>
+      </main>
    
   );
 };
