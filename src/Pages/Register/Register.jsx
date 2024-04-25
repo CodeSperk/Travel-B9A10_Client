@@ -1,9 +1,44 @@
 import { Link } from "react-router-dom";
 import loginBg from "/login-bg.jpeg"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
+  const {createUser} = useContext(AuthContext);
+
+
+  // To register with email and password
+  const handleRegister = e => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    // console.log(name, email, password, photo);
+
+    createUser(email, password)
+    .then(result => {
+      // to update name & photo url
+      updateProfile(result.user, {
+        displayName:name,
+        photoURL: photo
+      }).then().catch(error=>console.log(error.code));
+      Swal.fire({
+        icon: "success",
+        iconColor: "#27227d",
+        confirmButtonColor: "#27227d",
+        title: "Registration Successful",
+        timer: 2500
+      });
+    })
+    .catch(error => {
+      console.log(error.code);
+    })
+  }
 
   return (
   
@@ -30,7 +65,7 @@ const Register = () => {
           </div>
 
           {/* form section */}
-          <form className="w-full md:w-5/12 flex flex-col py-16 px-8">
+          <form className="w-full md:w-5/12 flex flex-col py-16 px-8" onSubmit={handleRegister}>
             <h3 className="uppercase text-center font-bold mb-8"> Adventura </h3>
            
 
@@ -38,8 +73,7 @@ const Register = () => {
             <div className="relative z-0 w-full mb-6 group">
               <input
                 type="text"
-                name="fName"
-                id="fName"
+                name="name"
                 className="block py-2 px-0 w-full text-md bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                 placeholder=" "
                 required
@@ -54,7 +88,6 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                id="email"
                 className="block py-2 px-0 w-full text-md bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                 placeholder=" "
                 required
@@ -69,7 +102,6 @@ const Register = () => {
               <input
                 type="text"
                 name="photo"
-                id="photo"
                 className="block py-2 px-0 w-full text-md bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                 placeholder=" "
                 required
@@ -83,7 +115,7 @@ const Register = () => {
             <div className="relative z-0 w-full mb-6 group">
               <input
                 type={showPass? "text" : "Password"}
-                name="Password"
+                name="password"
                 className="block py-2 px-0 w-full text-md bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                 placeholder=" "
                 required

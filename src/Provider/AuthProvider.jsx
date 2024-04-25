@@ -1,16 +1,38 @@
 import PropTypes from 'prop-types';
-import { getAuth } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { createContext, useState } from "react";
 import app from "../firebase/firebase.config";
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 const auth =  getAuth(app);
 
 const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
+
+
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  const googleLogin = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  }
+
+  const githubLogin = () => {
+    const gitProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, gitProvider);
+  }
  
   const authInfo = {
-    user
+    user,
+    createUser,
+    loginUser,
+    googleLogin,
+    githubLogin
   }
 
   return(
