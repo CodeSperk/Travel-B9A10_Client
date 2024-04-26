@@ -4,7 +4,6 @@ import 'swiper/css/bundle';
 import "./bannerSwiper.css";
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 
-
 const Banner = () => {
   return (
     <div className='homeBanner relative'>
