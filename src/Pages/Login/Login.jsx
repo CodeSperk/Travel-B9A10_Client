@@ -11,55 +11,81 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const {loginUser, googleLogin,
     githubLogin} = useContext(AuthContext);
+  const [error, setError] = useState(null);
 
+  //to display success alert
+  const handleSuccess = () => {
+    Swal.fire({
+      icon: "success",
+      iconColor: "#27227d",
+      confirmButtonColor: "#27227d",
+      title: "Login Successful",
+      timer: 2500
+    });
+  }
+
+  // To login with email and password
   const handleLogin = (e) => {
     e.preventDefault();
+    setError(null);
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
 
     loginUser(email, password)
     .then(result => {
-      // console.log(result.user);
-      Swal.fire({
-        icon: "success",
-        iconColor: "#27227d",
-        confirmButtonColor: "#27227d",
-        title: "Login Successful",
-        timer: 2500
-      });
+      handleSuccess();
     })
     .catch(error => {
-      console.log(error.code);
+      if(error.code === "auth/invalid-credential"){
+        setError("Provide valid email & password");
+      }
     })
   }
 
 // handle google Login
   const handleGoogleLogin = () => {
     googleLogin().then(result => {
+      const name = result.user?.displayName;
+      const email = result.user?.email;
+      const photo = result.user?.photoURL;
+      const user = {name, email, photo};
+
+      fetch("http://localhost:5000/users", {
+        method: "PATCH",
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify(user)
+      })
+      .then(res=> res.json())
+      .then(data => console.log(data))
+
+
       // console.log(result.user);
-      Swal.fire({
-        icon: "success",
-        iconColor: "#27227d",
-        confirmButtonColor: "#27227d",
-        title: "Google Login Successful",
-        timer: 2500
-      });
+      handleSuccess();
     }).catch(error => console.log(error.code));
   }
 
 // handle GitHub login
   const handleGitHubLogin = () => {
     githubLogin().then(result=> {
-      // console.log(result.user);
-      Swal.fire({
-        icon: "success",
-        iconColor: "#27227d",
-        confirmButtonColor: "#27227d",
-        title: "GitHub Login Successful",
-        timer: 2500
-      });
+      const name = result.user?.displayName;
+      const email = result.user?.email;
+      const photo = result.user?.photoURL;
+      const user = {name, email, photo};
+      fetch("http://localhost:5000/users", {
+        method: "PATCH",
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify(user)
+      })
+      .then(res=> res.json())
+      .then(data => console.log(data))
+
+      handleSuccess();
     }).catch(error => console.log(error.code));
   }
 
@@ -90,9 +116,9 @@ const Login = () => {
             <h3 className="uppercase text-center font-bold mb-8"> Adventura </h3>
            
             <div className="text-center my-4">
-              <div className="flex justify-center gap-6 text-2xl mb-2">
-              <FcGoogle className="hover:scale-150 duration-500 cursor-pointer" onClick={handleGoogleLogin}/>
-              <FaGithub className="hover:scale-150 duration-500 cursor-pointer" onClick={handleGitHubLogin}/>
+              <div className="flex justify-center gap-6 text-3xl mb-2">
+              <FcGoogle className="hover:scale-110 duration-500 cursor-pointer" onClick={handleGoogleLogin}/>
+              <FaGithub className="hover:scale-110 duration-500 cursor-pointer" onClick={handleGitHubLogin}/>
               </div>
               <small>Or use your email account</small>
             </div>
@@ -110,10 +136,6 @@ const Login = () => {
               <label className="text-gray-500 peer-focus:font-medium absolute duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Your Email
               </label>
-              
-            
-              <MdAlternateEmail className="absolute top-1/2 -translate-y-1/2 right-2 text-lg"/>
-            
             </div>
 
             {/* Password Field */}
@@ -128,6 +150,11 @@ const Login = () => {
               <label className="text-gray-500 peer-focus:font-medium absolute duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Your Password
               </label>
+              <small className="text-warning">
+                {
+                  error
+                }
+              </small>
 
               <div className="absolute top-1/2 -translate-y-1/2 right-2 text-lg" onClick={() => setShowPass(!showPass)}>
                 {

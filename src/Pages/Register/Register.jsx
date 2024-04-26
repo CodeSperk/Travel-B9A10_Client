@@ -32,14 +32,15 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    // console.log(name, email, password, photo);
     const newUser = {name, photo, email};
 
+    // to validate password
     if(!/[A-Z]/.test(password) || !/[a-z]/.test(password) || password.length < 6){
       setError("At least one Uppercase letter, one lowercase letter & min 6 characters.");
       return;
     }
 
+    // to register new user
     createUser(email, password)
     .then(result => {
       // to update name & photo url
@@ -61,14 +62,12 @@ const Register = () => {
       })
       .then(res => res.json())
       .then(data =>{
-       console.log(data); 
+      //  console.log(data); 
       })
 
       //to prevent auto login
       logOutUser()
-      .then(() => {
-        // console.log("logout success");
-      })
+      .then()
       .catch(error=>console.log(error.code));
       
       //to clear form and navigate after success
@@ -101,7 +100,6 @@ const Register = () => {
               </Link>
             </p>
               </div>
-       
           </div>
 
           {/* form section */}
@@ -169,7 +167,7 @@ const Register = () => {
                 }
               </div>
             </div>
-            <small className="text-red-500">
+            <small className="text-warning">
               {error}
             </small>
             </div>
