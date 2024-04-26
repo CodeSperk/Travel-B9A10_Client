@@ -1,0 +1,17 @@
+ul li a{
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none; 
+  padding: 4px 8px;
+}
+ul li a.active, li a.active:hover,  li:hover{
+  font-weight: bold;
+  border-radius: 2px;
+  color:var(--clr-accent);
+  text-decoration: underline;
+}
+ul:hover a.active{
+  background: transparent;
+  color: var(--clr-primary);
+  text-decoration:none;
+}

@@ -5,6 +5,9 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+
+
+
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const {createUser, logOutUser} = useContext(AuthContext);
@@ -16,7 +19,7 @@ const Register = () => {
    Swal.fire({
     icon: icon,
     iconColor: iconColor,
-    confirmButtonColor: "#27227d",
+    confirmButtonColor: "#2D2F81",
     title: title,
     timer: 2500
   });
@@ -50,7 +53,7 @@ const Register = () => {
       })
       .then()
       .catch(error=>console.log(error.code));
-      sweetAlert("success", "Registration Success !", "#27227d");
+      sweetAlert("success", "Registration Success !", "#2D2F81");
 
       // to send User Info to the mongodb
       fetch("http://localhost:5000/users", {
@@ -76,7 +79,7 @@ const Register = () => {
     })
     .catch(error => {
       if(error.code === "auth/email-already-in-use"){
-        sweetAlert("warning", "Already Registered !", "#cc3300")
+        sweetAlert("warning", "Already Registered !", "#2D2F81")
       }
     })
   }
@@ -104,8 +107,7 @@ const Register = () => {
 
           {/* form section */}
           <form className="w-full md:w-5/12 flex flex-col py-16 px-8" onSubmit={handleRegister}>
-            <h3 className="uppercase text-center font-bold mb-8"> Adventura </h3>
-           
+           <img src="https://i.ibb.co/JR0dRpD/logo-ligth.png" alt="" className="w-48 mx-auto mb-6"/>
             <div className="flex-grow">
             {/* Name field */}
             <div className="relative z-0 w-full mb-6 group">

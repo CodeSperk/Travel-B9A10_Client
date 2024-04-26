@@ -4,6 +4,9 @@ import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import AddTouristSpot from "../Pages/TouristSpot/AddTouristSpot";
+import AllTouristSpot from "../Pages/TouristSpot/AllTouristSpot";
+import MyList from "../Pages/MyList/MyList";
 
 const Routes = createBrowserRouter([
   {
@@ -20,6 +23,15 @@ const Routes = createBrowserRouter([
       },{
         path:"/login",
         element:<Login></Login>
+      },{
+        path:"/addSpot",
+        element:<AddTouristSpot></AddTouristSpot>
+      },{
+        path:"/allSpot",
+        element:<AllTouristSpot></AllTouristSpot>
+      },{
+        path:"/myList",
+        element:<MyList></MyList>
       }
     ]
   }
