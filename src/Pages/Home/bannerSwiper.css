@@ -1,0 +1,67 @@
+.homeBanner .swiper {
+  z-index: 0;
+  width: 100%;
+  height: 35vh;
+  position: relative;
+}
+.homeBanner .swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeBanner .swiper-button-next, 
+.homeBanner .swiper-button-prev{
+  z-index: 20;
+  color:white;
+  margin:0 0px;
+  background-color: black;
+  height: 100%;
+  width: 50px;
+  top: 0;
+  opacity: 0;
+}
+.homeBanner .swiper-button-next{
+  right: 0;
+}
+.homeBanner .swiper-button-prev{
+  left: 0;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  content: "";
+}
+.homeBanner .swiper-scrollbar {
+  background-color: var(--bg-secondary); 
+}
+.homeBanner .swiper-scrollbar .swiper-scrollbar-drag{
+  background-color: #4b41c1;
+}
+.homeBanner .swiper-slide .overlay {
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Black with 50% opacity */
+  z-index: 10;
+}
+.homeBanner .swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px){
+  .homeBanner .swiper {
+    height: 50vh;
+  }
+}
+@media screen and (min-width: 1024px){
+  .homeBanner .swiper {
+    height: 60vh;
+  }
+}
