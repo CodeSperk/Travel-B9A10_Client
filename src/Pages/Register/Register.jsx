@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginBg from "/login-bg.jpeg"
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
@@ -7,18 +7,38 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
-  const {createUser} = useContext(AuthContext);
+  const {createUser, logOutUser} = useContext(AuthContext);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
+  // Handle sweet alert 
+  const sweetAlert = (icon = " ", title = " ", iconColor) => {
+   Swal.fire({
+    icon: icon,
+    iconColor: iconColor,
+    confirmButtonColor: "#27227d",
+    title: title,
+    timer: 2500
+  });
+}
 
   // To register with email and password
   const handleRegister = e => {
     e.preventDefault();
+    setError(null);
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
     // console.log(name, email, password, photo);
+    const newUser = {name, photo, email};
+
+    if(!/[A-Z]/.test(password) || !/[a-z]/.test(password) || password.length < 6){
+      setError("At least one Uppercase letter, one lowercase letter & min 6 characters.");
+      return;
+    }
 
     createUser(email, password)
     .then(result => {
@@ -26,23 +46,43 @@ const Register = () => {
       updateProfile(result.user, {
         displayName:name,
         photoURL: photo
-      }).then().catch(error=>console.log(error.code));
-      Swal.fire({
-        icon: "success",
-        iconColor: "#27227d",
-        confirmButtonColor: "#27227d",
-        title: "Registration Successful",
-        timer: 2500
-      });
+      })
+      .then()
+      .catch(error=>console.log(error.code));
+      sweetAlert("success", "Registration Success !", "#27227d");
+
+      // to send User Info to the mongodb
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers:{
+          "content-type" : "application/json"
+        },
+        body: JSON.stringify(newUser)
+      })
+      .then(res => res.json())
+      .then(data =>{
+       console.log(data); 
+      })
+
+      //to prevent auto login
+      logOutUser()
+      .then(() => {
+        // console.log("logout success");
+      })
+      .catch(error=>console.log(error.code));
+      
+      //to clear form and navigate after success
+      form.reset();
+      navigate("/login");
     })
     .catch(error => {
-      console.log(error.code);
+      if(error.code === "auth/email-already-in-use"){
+        sweetAlert("warning", "Already Registered !", "#cc3300")
+      }
     })
   }
 
   return (
-  
-      
       <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
         <section className="flex flex-col md:flex-row bg-[var(--clr-accent)] max-w-[800px] min-h-[500px] mx-auto text-white rounded-xl shadow-2xl">
           {/* Welcome section */}
@@ -68,7 +108,7 @@ const Register = () => {
           <form className="w-full md:w-5/12 flex flex-col py-16 px-8" onSubmit={handleRegister}>
             <h3 className="uppercase text-center font-bold mb-8"> Adventura </h3>
            
-
+            <div className="flex-grow">
             {/* Name field */}
             <div className="relative z-0 w-full mb-6 group">
               <input
@@ -112,7 +152,7 @@ const Register = () => {
             </div>
 
             {/* Password Field */}
-            <div className="relative z-0 w-full mb-6 group">
+            <div className="relative z-0 w-full group">
               <input
                 type={showPass? "text" : "Password"}
                 name="password"
@@ -123,16 +163,18 @@ const Register = () => {
               <label className="text-gray-500 peer-focus:font-medium absolute duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Your Password
               </label>
-
               <div className="absolute top-1/2 -translate-y-1/2 right-2 text-xl" onClick={() => setShowPass(!showPass)}>
                 {
                 showPass? <FaRegEyeSlash /> : <FaRegEye /> 
                 }
               </div>
             </div>
-            
-            <input type="submit" value="Register" className="bg-white text-[var(--clr-accent)] font-bold p-1.5 rounded-full cursor-pointer border-2 hover:bg-transparent hover:text-white mt-6"/>
-           
+            <small className="text-red-500">
+              {error}
+            </small>
+            </div>
+            <input type="submit" value="Register" className="w-full bg-white text-[var(--clr-accent)] font-bold p-1.5 rounded-full cursor-pointer border-2 hover:bg-transparent hover:text-white mt-6"/>
+          
             
           </form>
         </section>
