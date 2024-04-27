@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginBg from "/login-bg.jpeg";
 import { useContext, useState } from "react";
 import { FaGithub, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { MdAlternateEmail } from "react-icons/md";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -11,6 +10,8 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   //to display success alert
   const handleSuccess = () => {
@@ -35,6 +36,7 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         handleSuccess();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         if (error.code === "auth/invalid-credential") {
@@ -64,6 +66,7 @@ const Login = () => {
 
         // console.log(result.user);
         handleSuccess();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => console.log(error.code));
   };
@@ -87,6 +90,7 @@ const Login = () => {
           .then((data) => console.log(data));
 
         handleSuccess();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => console.log(error.code));
   };
@@ -187,19 +191,6 @@ const Login = () => {
           />
         </form>
       </section>
-
-      
-        <div className=" flex h-screen justify-center items-center relative">
-          <div className=" text-xl">
-            <strong className="group-hover:text-red-500">Hover on me </strong>
-            <strong className="group-hover:text-green-500">
-              the texts will be{" "}
-            </strong>
-            <strong className="absolute group-hover:text-blue-500">
-              of different colors
-            </strong>
-          </div>
-        </div>
     </main>
   );
 };
