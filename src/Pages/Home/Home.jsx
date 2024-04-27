@@ -4,7 +4,6 @@ import PopularTouristSpot from "./PopularTouristSpot";
 
 const Home = () => {
   const touristSpots = useLoaderData();
-  console.log(touristSpots.slice(0,6));
 
   return (
     <div>

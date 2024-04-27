@@ -35,7 +35,6 @@ const Navbar = () => {
     .catch(error=>console.log(error.code));
   }
 
-  console.log(user);
   return (
     <nav className="bg-white opacity-100">
       <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 flex justify-between items-center py-4 min-h-16">
@@ -48,6 +47,7 @@ const Navbar = () => {
             className="w-full"
           />
         </Link>
+        
         {/* dropdown menu */}
         <div className="dropdown dropdown-hover lg:hidden">
         <GiHamburgerMenu tabIndex={0}  className="text-2xl hover:text-[var(--clr-accent)] cursor-pointer"/>
