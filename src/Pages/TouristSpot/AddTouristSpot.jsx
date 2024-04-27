@@ -88,18 +88,8 @@ const AddTouristSpot = () => {
             </label>
           </div>
 
-          {/* Spot Location & Seasonality name */}
+          {/* Spot Seasonality and duration name */}
           <div className="flex flex-col md:flex-row gap-4">
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
-              <span className="">Location :</span>
-              <input
-                type="text"
-                name="location"
-                className="h-full outline-0 border-0 rounded-md"
-                placeholder="State / District"
-              />
-            </label>
-
             <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
               <span className="">seasonality :</span>
               <input
@@ -109,10 +99,6 @@ const AddTouristSpot = () => {
                 placeholder="Suitable Season"
               />
             </label>
-          </div>
-
-          {/* Spot Travel Time & TotalVisitor name */}
-          <div className="flex flex-col md:flex-row gap-4">
             <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
               <span className="">Duration :</span>
               <input
@@ -122,7 +108,10 @@ const AddTouristSpot = () => {
                 placeholder="Travel Time"
               />
             </label>
+          </div>
 
+           {/* Spot Travel Time, TotalVisitor name  and cost*/}
+           <div className="flex flex-col md:flex-row gap-4">
             <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
               <span className="">Total Visitor :</span>
               <input
@@ -132,27 +121,51 @@ const AddTouristSpot = () => {
                 placeholder="Number of visitors per Year"
               />
             </label>
-          </div>
-
-          {/* cost & image url */}
-          <div className="flex flex-col md:flex-row gap-4">
             <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
               <span className="">Cost :</span>
               <input
-                type="text"
+                type="number"
                 name="cost"
-                className="h-full outline-0 border-0 rounded-md"
+                className="h-full outline-0 border-0 rounded-md flex-grow"
                 placeholder="Average Cost"
               />
             </label>
+          </div>
 
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+          {/* Photos url */}
+          <div className="flex flex-col md:flex-row gap-4">
+          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
               <span className="">Photo :</span>
               <input
                 type="text"
                 name="photo"
                 className="h-full outline-0 border-0 rounded-md"
                 placeholder="Enter Photo URL"
+              />
+            </label>
+
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+              <span className="">Banner :</span>
+              <input
+                type="text"
+                name="photoBanner"
+                className="h-full outline-0 border-0 rounded-md"
+                placeholder="Enter Photo URL"
+              />
+            </label>
+
+          </div>
+
+         
+          {/* Location */}
+          <div>
+          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full">
+              <span className="">Location :</span>
+              <input
+                type="text"
+                name="location"
+                className="h-full outline-0 border-0 rounded-md"
+                placeholder="State / District"
               />
             </label>
           </div>
