@@ -26,12 +26,12 @@ const TouristSpotDetails = () => {
     <div>
 <header className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
 <div
-        className="relative text-center h-64 md:h-80 xl:h-96 w-full bg-cover bg-no-repeat bg-center"
+        className="relative text-center h-64 md:h-80 xl:h-96 w-full bg-cover bg-no-repeat bg-center rounded-xl"
         style={{
           backgroundImage: `url(${photoBanner})`,
         }}
       >
-        <div className="absolute bg-black top-0 w-full h-full opacity-40 "></div>
+        <div className="absolute bg-black top-0 w-full h-full opacity-40 rounded-xl"></div>
         <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center">
           <h1 className="text-white z-20">{placeName}</h1>
 
