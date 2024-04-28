@@ -1,5 +1,5 @@
 import { FaInstagramSquare } from "react-icons/fa";
-import { FaFacebook, FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
