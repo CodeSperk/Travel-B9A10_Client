@@ -104,7 +104,7 @@ const Home = () => {
 
         {/* Service Section */}
         <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
-          <div className=" bg-blue-50 py-12 md:py-16 rounded-lg px-4 md:px-10">
+          <div className=" bg-[#ececf2] py-12 md:py-16 rounded-lg px-4 md:px-10 ">
         <header>
               <p className="text-center text-lg">Our Services</p>
               <h2 className="text-center">We offer the following services</h2>
