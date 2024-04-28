@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Lottie from "lottie-react";
 import CountryCard from "./CountryCard";
+import Services from "./Services";
 
 const Home = () => {
   const touristSpots = useLoaderData();
@@ -64,9 +65,9 @@ const Home = () => {
           </div>
 
           {/* offer right */}
-          <div className="relative md:w-1/2 bg-cover bg-no-repeat bg-center shadow-md h-56 md:h-full" style={{backgroundImage: "url(https://i.ibb.co/FXgWp86/photo-1502920514313-52581002a659.jpg)"}}>
+          <div className="relative md:w-1/2 bg-cover bg-no-repeat bg-center shadow-md h-56 md:h-full" style={{backgroundImage: "url(https://i.ibb.co/xFLWb6P/photo-1436491865332-7a61a109cc05.jpg)"}}>
             
-            <div className="absolute bg-white bg-opacity-95 top-0 w-full h-full flex flex-col justify-center md:pr-24 p-4 md:p-8 lg:p-12">
+            <div className="absolute bg-white bg-opacity-90 top-0 w-full h-full flex flex-col justify-center md:pr-24 p-4 md:p-8 lg:p-12">
             <h3>Great Deals</h3>
             <p className="text-justify mt-2 mb-4">
               Save big on unforgettable experiences! Explore our exclusive
@@ -97,6 +98,19 @@ const Home = () => {
                 <CountryCard key={country._id} country={country}></CountryCard>
               ))}
             </div>
+          </div>
+        </section>
+
+
+        {/* Service Section */}
+        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+          <div className=" bg-blue-50 py-12 md:py-16 rounded-lg px-4 md:px-10">
+        <header>
+              <p className="text-center text-lg">Our Services</p>
+              <h2 className="text-center">We offer the following services</h2>
+        </header>
+        
+        <Services></Services>
           </div>
         </section>
       </main>
