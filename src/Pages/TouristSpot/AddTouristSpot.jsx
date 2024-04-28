@@ -12,13 +12,13 @@ const AddTouristSpot = () => {
     const season = form.seasonality.value;
     const travelTime = form.duration.value;
     const totalVisitor = form.visitor.value;
-    const photo = form.photo.value;
+    const photoBanner = form.photo.value;
     const cost = form.cost.value;
     const description = form.description.value;
     const userName = form.userName.value;
     const userEmail = form.userEmail.value;
 
-    const newSpot = {placeName, country, location, season, travelTime, totalVisitor, photo, cost, description, userName, userEmail};
+    const newSpot = {placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description, userName, userEmail};
     console.log(newSpot);
 
     fetch("http://localhost:5000/touristSpots", {
@@ -41,7 +41,6 @@ const AddTouristSpot = () => {
         });
       }
     })
-
 
   };
 
@@ -66,7 +65,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 name="placeName"
-                className="h-full outline-0 border-0 rounded-md"
+                className="flex-1 h-full outline-0 border-0 rounded-md"
                 placeholder="Place Name"
               />
             </label>
@@ -95,7 +94,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 name="seasonality"
-                className="h-full outline-0 border-0 rounded-md"
+                className="flex-1 h-full outline-0 border-0 rounded-md"
                 placeholder="Suitable Season"
               />
             </label>
@@ -104,7 +103,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 name="duration"
-                className="h-full outline-0 border-0 rounded-md"
+                className="flex-1 h-full outline-0 border-0 rounded-md"
                 placeholder="Travel Time"
               />
             </label>
@@ -117,7 +116,7 @@ const AddTouristSpot = () => {
               <input
                 type="number"
                 name="visitor"
-                className="h-full outline-0 border-0 rounded-md flex-grow"
+                className="flex-1 h-full outline-0 border-0 rounded-md flex-grow"
                 placeholder="Number of visitors per Year"
               />
             </label>
@@ -126,34 +125,23 @@ const AddTouristSpot = () => {
               <input
                 type="number"
                 name="cost"
-                className="h-full outline-0 border-0 rounded-md flex-grow"
+                className="flex-1 h-full outline-0 border-0 rounded-md flex-grow"
                 placeholder="Average Cost"
               />
             </label>
           </div>
 
-          {/* Photos url */}
+          {/* Photo url */}
           <div className="flex flex-col md:flex-row gap-4">
-          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full">
               <span className="">Photo :</span>
               <input
                 type="text"
                 name="photo"
-                className="h-full outline-0 border-0 rounded-md"
+                className="flex-1 h-full outline-0 border-0 rounded-md"
                 placeholder="Enter Photo URL"
               />
             </label>
-
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
-              <span className="">Banner :</span>
-              <input
-                type="text"
-                name="photoBanner"
-                className="h-full outline-0 border-0 rounded-md"
-                placeholder="Enter Photo URL"
-              />
-            </label>
-
           </div>
 
          
@@ -164,7 +152,7 @@ const AddTouristSpot = () => {
               <input
                 type="text"
                 name="location"
-                className="h-full outline-0 border-0 rounded-md"
+                className="flex-1 h-full outline-0 border-0 rounded-md"
                 placeholder="State / District"
               />
             </label>

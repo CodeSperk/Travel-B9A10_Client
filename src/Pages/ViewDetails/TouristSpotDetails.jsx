@@ -6,7 +6,7 @@ const TouristSpotDetails = () => {
 
   return (
     <div>
-      <img src={touristSpot.photo} alt="" />
+      <img src={touristSpot.photoBanner} alt="" />
     </div>
   );
 };
