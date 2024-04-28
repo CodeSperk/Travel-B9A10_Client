@@ -29,6 +29,7 @@ const AllTouristSpot = () => {
   return (
     <div>
       {/* header section */}
+      <div className="">
       <header
         className="relative text-center h-48 md:h-64 xl:h-80 w-full bg-cover bg-no-repeat bg-center"
         style={{
@@ -54,7 +55,7 @@ const AllTouristSpot = () => {
           </select>
         </div>
       </header>
-
+      </div>
       <main>
         <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start">
           {/* Places */}
