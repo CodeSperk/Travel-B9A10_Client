@@ -34,8 +34,8 @@ const Banner = () => {
           <img src="https://i.ibb.co/9hwwt0v/banner-3.jpg" alt="Home banner3" />
           <div className='overlay'></div>
       </SwiperSlide>
-      <p className='absolute top-1/2 -translate-y-1/2 text-white right-4 z-10'><FaArrowCircleRight className='text-2xl'/></p>
-      <p className='absolute top-1/2 -translate-y-1/2 text-white left-4 z-10'><FaArrowCircleLeft className='text-2xl'/></p>
+      <p className='absolute top-1/2 -translate-y-1/2 text-white right-0 z-10 bg-[#2D2F81] p-2 md:pl-2 md:p-3 rounded-l-md'><FaArrowCircleRight className='text-2xl'/></p>
+      <p className='absolute top-1/2 -translate-y-1/2 text-white left-0 z-10 bg-[#2D2F81] p-2 md:p-3 md:pl-2 rounded-r-md'><FaArrowCircleLeft className='text-2xl'/></p>
       </Swiper>
     </div>
   );

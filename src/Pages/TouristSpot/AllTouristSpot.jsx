@@ -7,26 +7,23 @@ import { RiGroupLine } from "react-icons/ri";
 const AllTouristSpot = () => {
   const allSpots = useLoaderData();
   const [showAll, setShowAll] = useState(false);
-  const [sortedSpots, setSortedSpots] = useState(allSpots);
+  const [spotsToDisplay, setSpotsToDisplay] = useState(allSpots);
 
   let spotsLength = 6;
   if (showAll) {
-    spotsLength = sortedSpots.length;
+    spotsLength = spotsToDisplay.length;
   }
 
   const handleSort = (e) => {
     const selectedValue = e.target.value;
-
-
-
-    let sorted = [...sortedSpots];
+    let sorted = [...spotsToDisplay];
     if(selectedValue === "ascending"){
       sorted.sort((a, b) => parseInt(a.cost)- parseInt(b.cost));
     }
     if(selectedValue === "descending"){
       sorted.sort((a, b) => parseInt(b.cost)- parseInt(a.cost));
     }
-    setSortedSpots(sorted);
+    setSpotsToDisplay(sorted);
   };
 
   return (
@@ -63,12 +60,12 @@ const AllTouristSpot = () => {
           {/* Places */}
           <div className="md:col-span-2 lg:col-span-3 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {sortedSpots?.slice(0, spotsLength).map((spot) => (
+              {spotsToDisplay?.slice(0, spotsLength).map((spot) => (
                 <AllSpotsCards key={spot._id} spot={spot}></AllSpotsCards>
               ))}
             </div>
 
-            {sortedSpots.length > 6 && (
+            {spotsToDisplay.length > 6 && (
               <button
                 className="text-white text-lg bg-[var(--clr-accent)] py-2 px-8 rounded mt-6 md:mt-8 w-fit mx-auto"
                 onClick={() => setShowAll(!showAll)}
@@ -91,7 +88,7 @@ const AllTouristSpot = () => {
 
             {/* Date */}
             <div className="border-b-2 pb-1">
-              <h5 className="font-bold">Where</h5>
+              <h5 className="font-bold">When</h5>
               <div className="relative mt-2">
               <input type="text" placeholder="27th april, 2024" className="border-none outline-none w-full pr-6 pl-1" />
               <IoCalendarNumberOutline className="text-[var(--clr-accent)] absolute top-1/2 -translate-y-1/2 right-0 text-xl "/>
