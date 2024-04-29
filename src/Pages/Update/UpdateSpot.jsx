@@ -131,7 +131,7 @@ const UpdateSpot = () => {
                 name="cost"
                 defaultValue={cost}
                 className="h-full outline-0 border-0 rounded-md flex-grow"
-                placeholder="Average Cost"
+                placeholder="Average Cost $USD"
               />
             </label>
           </div>

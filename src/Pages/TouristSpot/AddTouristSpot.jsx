@@ -126,7 +126,7 @@ const AddTouristSpot = () => {
                 type="number"
                 name="cost"
                 className="flex-1 h-full outline-0 border-0 rounded-md flex-grow"
-                placeholder="Average Cost"
+                placeholder="Average Cost in $USD"
               />
             </label>
           </div>

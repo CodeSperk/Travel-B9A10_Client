@@ -22,7 +22,7 @@ const AllSpotsCards = ({spot}) => {
 
         <div className='space-y-2 mt-4'>
           <p><span className='font-medium text-[var(--clr-accent)]'>Visitor : </span> {totalVisitor} per year</p>
-          <p><span className='font-medium text-[var(--clr-accent)]'>Season : </span> {season} per year</p>
+          <p><span className='font-medium text-[var(--clr-accent)]'>Season : </span> {season}</p>
           <p><span className='font-medium text-[var(--clr-accent)]'>Duration : </span> {travelTime}</p>
         </div>
       </div>
