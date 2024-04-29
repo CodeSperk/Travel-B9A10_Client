@@ -9,7 +9,7 @@ const PrivateRout = ({children}) => {
 
   if(loading){
     return <div className='flex min-h-[80vh] justify-center items-center'>
-      <span className='loading loading-spinner loading-md'></span>
+      <p>Loading</p>
     </div>
   }
 

@@ -42,7 +42,7 @@ const TouristSpotDetails = () => {
       </header>
 
 
-      <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8 md:mt-12">
+      <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8 md:mt-12 mb-[4rem] md:mb-[7rem]">
         {/* Details Section */}
         <div className="md:col-span-2 lg:col-span-3">
           <div className="flex items-start gap-2">

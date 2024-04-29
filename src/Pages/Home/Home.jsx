@@ -83,7 +83,7 @@ const Home = () => {
 
           </div>
         </section>
-
+     
         {/* Countries section */}
 
         <section className=" text-center w-full">
@@ -103,7 +103,7 @@ const Home = () => {
 
 
         {/* Service Section */}
-        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 mb-[4rem] md:mb-[7rem]">
           <div className=" bg-[#ececf2] py-12 md:py-16 rounded-lg px-4 md:px-10 ">
         <header>
               <p className="text-center text-lg">Our Services</p>

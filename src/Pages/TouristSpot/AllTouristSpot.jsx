@@ -57,7 +57,7 @@ const AllTouristSpot = () => {
       </header>
       </div>
       <main>
-        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem]">
           {/* Places */}
           <div className="md:col-span-2 lg:col-span-3 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

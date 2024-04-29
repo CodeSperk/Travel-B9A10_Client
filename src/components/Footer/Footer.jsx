@@ -56,7 +56,7 @@ const Footer = () => {
             className="w-32 mx-auto"
           />
         </Link>
-        <p>Copyright @ {year}, Travel.Inc</p>
+        <p className="mt-4">Copyright @ {year}, Travel.Inc</p>
         </div>
       </div>
     </footer>

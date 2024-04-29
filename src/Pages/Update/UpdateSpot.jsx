@@ -1,10 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateSpot = () => {
   const spot = useLoaderData();
   const {_id, placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description} = spot;
-
+  const navigate = useNavigate();
 
   const handleUpdateSpot = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const UpdateSpot = () => {
     const description = form.description.value;
 
     const updatedSpot = {placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description};
-    console.log(updatedSpot);
+    // console.log(updatedSpot);
 
     fetch(`https://adventura-api-data.vercel.app/${_id}`, {
       method: "PUT",
@@ -31,7 +31,7 @@ const UpdateSpot = () => {
     })
     .then(res => res.json())
     .then(data=> {
-      console.log(data);
+      // console.log(data);
       if(data.modifiedCount>0){
         Swal.fire({
           icon: "success",
@@ -40,6 +40,7 @@ const UpdateSpot = () => {
           title: "Spot Updated Successfully",
           timer: 2500
         });
+        navigate("/myList")
       }
     })
 

@@ -19,35 +19,40 @@ const MyList = () => {
   }, [userEmail]);
 
   const handleSpotDelete = (id) => {
+
     Swal.fire({
       title: "Are you sure?",
+      text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes"
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#2D2F81",
+      confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-    fetch(`https://adventura-api-data.vercel.app/${id}`, {
-      method: "DELETE"
-    })
-    .then(res => res.json())
-    .then(data=> {
-      if(data.deletedCount > 0){
-        Swal.fire({
-          icon: "success",
-          title: "Deleted Successful",
-          timer: 2500
-        });
+        fetch(`http://localhost:5000/${id}`, {
+          method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0){
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            const spotsAfterDelete = mySpots.filter(spot => spot._id != id)
+            setMySpots(spotsAfterDelete)
+          }
+        })
       }
-    })
-  }
-});
+    });
+
 }
 
   return (
-    <div>
-      <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+    <div className="mb-[4rem] md:mb-[7rem]">
+      <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 mb-[4rem] md:mb-[7rem]">
         {mySpots.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="table table-zebra">
@@ -71,7 +76,9 @@ const MyList = () => {
                     <td>{spot.location}</td>
                     <td>{spot.travelTime}</td>
                     <td>$ {spot.cost}</td>
-                    <td><Link to={`/update/${spot._id}`}><LuFileEdit className="text-xl text-[var(--clr-accent)] ml-2 cursor-pointer hover:scale-150 duration-500" title="Update"/>   </Link></td>
+                    <td><Link to={`/update/${spot._id}`}><LuFileEdit className="text-xl text-[var(--clr-accent)] ml-2 cursor-pointer hover:scale-150 duration-500" title="Update"/>   
+                    </Link></td>
+
                     <td><MdDeleteOutline className="text-2xl text-red-500 ml-2 cursor-pointer hover:scale-150 duration-500" title="Delete" onClick={() => handleSpotDelete(spot._id)}/></td>
                   </tr>
                 ))}

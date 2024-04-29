@@ -49,21 +49,6 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        const name = result.user?.displayName;
-        const email = result.user?.email;
-        const photo = result.user?.photoURL;
-        const user = { name, email, photo };
-
-        fetch("https://adventura-api-data.vercel.app/users", {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data));
-
         // console.log(result.user);
         handleSuccess();
         navigate(location?.state ? location.state : "/");
@@ -75,20 +60,6 @@ const Login = () => {
   const handleGitHubLogin = () => {
     githubLogin()
       .then((result) => {
-        const name = result.user?.displayName;
-        const email = result.user?.email;
-        const photo = result.user?.photoURL;
-        const user = { name, email, photo };
-        fetch("https://adventura-api-data.vercel.app/users", {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data));
-
         handleSuccess();
         navigate(location?.state ? location.state : "/");
       })
@@ -96,7 +67,7 @@ const Login = () => {
   };
 
   return (
-    <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+    <main className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 mb-[4rem] md:mb-[7rem]">
       <section className="flex flex-col md:flex-row bg-[var(--clr-accent)] max-w-[800px] mx-auto text-white rounded-xl shadow-dark min-h-[500px]">
         {/* Welcome section */}
         <div
@@ -104,7 +75,7 @@ const Login = () => {
           style={{ backgroundImage: `url(${loginBg})` }}
         >
           <div className="absolute w-full h-full flex flex-col items-center justify-between bg-[#2D2F81] bg-opacity-30 p-8 md:p-12 rounded-l-xl">
-            <h4 className="uppercase font-bold text-center">
+            <h4 className="uppercase font-bold text-center text-white">
               Travel is the only thing you buy that makes you richer
             </h4>
             <p className="text-md font-medium text-right mt-4">
