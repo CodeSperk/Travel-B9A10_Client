@@ -1,16 +1,13 @@
-import { FaLocationDot } from "react-icons/fa6";
 import { IoCalendarNumberOutline, IoLocationSharp } from "react-icons/io5";
 import { MdGroupAdd, MdOutlineEmojiTransportation } from "react-icons/md";
 import { RiGroupLine } from "react-icons/ri";
 import { TfiAlarmClock } from "react-icons/tfi";
-import { TiGroup } from "react-icons/ti";
 import { useLoaderData } from "react-router-dom";
 
 const TouristSpotDetails = () => {
-  const touristSpot = useLoaderData();
+  const touristSpot = useLoaderData();  
   const {
     photoBanner,
-    photo,
     placeName,
     country,
     location,
@@ -18,8 +15,7 @@ const TouristSpotDetails = () => {
     cost,
     season,
     travelTime,
-    totalVisitor,
-    userName,
+    totalVisitor
   } = touristSpot;
 
   return (

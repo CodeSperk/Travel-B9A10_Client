@@ -6,19 +6,19 @@ const AllSpotsCards = ({spot}) => {
 
   return (
     <div className="flex flex-col shadow-dark rounded-sm">
-      <div className="h-56 xl:h-64">
+      <div className="h-56 xl:h-64 relative">
         <img
           src={photoBanner}
           alt={placeName}
           className="object-cover h-full rounded-sm"
         />
+        <p className='bg-[var(--bg-primary)] text-[var(--clr-accent)] px-2 rounded-sm font-bold py-[1px] mt-2 absolute bottom-1 right-1'>${cost}</p>
       </div>
 
       <div className="flex-grow p-4">
-        <div className='flex items-start gap-2'>
+      
         <h4 className='flex-1'>{placeName}</h4>
-        <p className='bg-[var(--bg-primary)] text-[var(--clr-accent)] px-2 rounded font-bold py-[1px] mt-2'>${cost}</p>
-        </div>
+
 
         <div className='space-y-2 mt-4'>
           <p><span className='font-medium text-[var(--clr-accent)]'>Visitor : </span> {totalVisitor} per year</p>
