@@ -13,7 +13,7 @@ const Home = () => {
   const { loading } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/countries")
+    fetch("https://adventura-api-data.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);

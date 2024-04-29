@@ -56,7 +56,7 @@ const Register = () => {
       sweetAlert("success", "Registration Success !", "#2D2F81");
 
       // to send User Info to the mongodb
-      fetch("http://localhost:5000/users", {
+      fetch("https://adventura-api-data.vercel.app/users", {
         method: "POST",
         headers:{
           "content-type" : "application/json"

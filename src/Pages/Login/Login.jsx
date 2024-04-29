@@ -54,7 +54,7 @@ const Login = () => {
         const photo = result.user?.photoURL;
         const user = { name, email, photo };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://adventura-api-data.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -79,7 +79,7 @@ const Login = () => {
         const email = result.user?.email;
         const photo = result.user?.photoURL;
         const user = { name, email, photo };
-        fetch("http://localhost:5000/users", {
+        fetch("https://adventura-api-data.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

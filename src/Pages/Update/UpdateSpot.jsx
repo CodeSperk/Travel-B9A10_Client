@@ -22,7 +22,7 @@ const UpdateSpot = () => {
     const updatedSpot = {placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description};
     console.log(updatedSpot);
 
-    fetch(`http://localhost:5000/${_id}`, {
+    fetch(`https://adventura-api-data.vercel.app/${_id}`, {
       method: "PUT",
       headers:{
         "content-type": "application/json"

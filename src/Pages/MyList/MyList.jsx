@@ -11,7 +11,7 @@ const MyList = () => {
   const [mySpots, setMySpots] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${userEmail}`)
+    fetch(`https://adventura-api-data.vercel.app/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setMySpots(data);
@@ -28,7 +28,7 @@ const MyList = () => {
       confirmButtonText: "Yes"
     }).then((result) => {
       if (result.isConfirmed) {
-    fetch(`http://localhost:5000/${id}`, {
+    fetch(`https://adventura-api-data.vercel.app/${id}`, {
       method: "DELETE"
     })
     .then(res => res.json())

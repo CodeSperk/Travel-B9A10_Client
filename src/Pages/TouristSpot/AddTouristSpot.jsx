@@ -21,7 +21,7 @@ const AddTouristSpot = () => {
     const newSpot = {placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description, userName, userEmail};
     console.log(newSpot);
 
-    fetch("http://localhost:5000/touristSpots", {
+    fetch("https://adventura-api-data.vercel.app/touristSpots", {
       method: "POST",
       headers:{
         "content-type": "application/json"
