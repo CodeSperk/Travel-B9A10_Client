@@ -37,10 +37,13 @@ body {
 .shadow-light{
   box-shadow: var(--light-shadow);
 }
+
 section{
   margin: 4rem 0 0;
 }
-
+.min-height-main{
+  min-height: calc(100vh - 780px);
+}
 a {
   text-decoration: none;
 }
@@ -88,6 +91,9 @@ h6 {
   section {
     margin: 7rem 0 0;
   }
+  .min-height-main{
+    min-height: calc(100vh - 796px);
+  }
   p {
     line-height: 1.5;
   }
@@ -117,5 +123,11 @@ h5 {
 h6 {
   font-size: 1.2rem;
   line-height: 1.5;
+}
+}
+
+@media screen and (min-width: 1024px) {
+.min-height-main{
+  min-height: calc(100vh - 853px);
 }
 }

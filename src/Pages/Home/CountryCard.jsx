@@ -12,7 +12,7 @@ const CountryCard = ({ country }) => {
             alt=""
             className="opacity-80 hover:opacity-40 rounded-md"
           />
-          <p className="absolute bottom-0 bg-black bg-opacity-80 h-24 p-2 lg:p-4 text-start duration-50 rounded-b-md text-sm lg:text-base">
+          <p className="absolute bottom-0 bg-black bg-opacity-80 h-24 md:h-20 lg:h-24 p-2 lg:p-4 text-start duration-50 rounded-b-md text-sm lg:text-base">
             {country.description}
           </p>
           <h4 className="absolute top-6 w-full text-white">

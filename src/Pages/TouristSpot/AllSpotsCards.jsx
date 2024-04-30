@@ -5,12 +5,12 @@ const AllSpotsCards = ({spot}) => {
   const { _id, photoBanner, placeName, cost, totalVisitor, season, travelTime } = spot;
 
   return (
-    <div className="flex flex-col shadow-dark rounded-sm">
+    <div className="flex flex-col shadow-dark rounded-md">
       <div className="h-56 xl:h-64 relative">
         <img
           src={photoBanner}
           alt={placeName}
-          className="object-cover h-full rounded-sm"
+          className="object-cover h-full rounded-t-md"
         />
         <p className='bg-[var(--bg-primary)] text-[var(--clr-accent)] px-2 rounded-sm font-bold py-[1px] mt-2 absolute bottom-1 right-1'>${cost}</p>
       </div>

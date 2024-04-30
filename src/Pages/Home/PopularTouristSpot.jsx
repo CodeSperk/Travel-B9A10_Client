@@ -5,12 +5,12 @@ const PopularTouristSpot = ({ spot }) => {
   const { _id, photoBanner, placeName, description } = spot;
 
   return (
-    <div className="flex flex-col shadow-dark rounded-sm">
+    <div className="flex flex-col shadow-dark rounded-md">
       <div className="h-56 xl:h-64">
         <img
           src={photoBanner}
           alt={placeName}
-          className="object-cover h-full rounded-sm"
+          className="object-cover h-full rounded-t-md"
         />
       </div>
 

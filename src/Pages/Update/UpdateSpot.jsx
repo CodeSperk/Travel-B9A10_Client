@@ -61,21 +61,21 @@ const UpdateSpot = () => {
 
           {/* Spot Name & country name */}
           <div className="flex flex-col md:flex-row gap-4">
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">Name :</span>
               <input
                 type="text"
                 name="placeName"
                 defaultValue={placeName}
-                className="flex-1 h-full outline-0 border-0 rounded-md"
+                className="flex-1 p-2 h-full outline-0 border-0 rounded-md"
                 placeholder="Place Name"
               />
             </label>
 
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">Country :</span>
 
-              <select name="country" defaultValue={country} className="h-full outline-0 border-0 rounded-md flex-grow">
+              <select name="country" defaultValue={country} className="h-full p-2 outline-0 border-0 rounded-md flex-grow">
                 <option value="null">
                   Select Country
                 </option>
@@ -91,23 +91,23 @@ const UpdateSpot = () => {
 
           {/* Spot Seasonality and duration name */}
           <div className="flex flex-col md:flex-row gap-4">
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">seasonality :</span>
               <input
                 type="text"
                 name="seasonality"
                 defaultValue={season}
-                className="flex-1 h-full outline-0 border-0 rounded-md"
+                className="flex-1 p-2 h-full outline-0 border-0 rounded-md"
                 placeholder="Suitable Season"
               />
             </label>
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">Duration :</span>
               <input
                 type="text"
                 name="duration"
                 defaultValue={travelTime}
-                className="flex-1 h-full outline-0 border-0 rounded-md"
+                className="flex-1 p-2 h-full outline-0 border-0 rounded-md"
                 placeholder="Travel Time"
               />
             </label>
@@ -115,23 +115,23 @@ const UpdateSpot = () => {
 
            {/* Spot Travel Time, TotalVisitor name  and cost*/}
            <div className="flex flex-col md:flex-row gap-4">
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">Total Visitor :</span>
               <input
                 type="number"
                 name="visitor"
                 defaultValue={totalVisitor}
-                className="h-full outline-0 border-0 rounded-md flex-1"
+                className="h-full p-2 outline-0 border-0 rounded-md flex-1"
                 placeholder="Number of visitors per Year"
               />
             </label>
-            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full md:w-1/2">
+            <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full md:w-1/2">
               <span className="">Cost :</span>
               <input
                 type="number"
                 name="cost"
                 defaultValue={cost}
-                className="h-full outline-0 border-0 rounded-md flex-grow"
+                className="h-full p-2 outline-0 border-0 rounded-md flex-grow"
                 placeholder="Average Cost $USD"
               />
             </label>
@@ -139,13 +139,13 @@ const UpdateSpot = () => {
 
           {/* Photos url */}
           <div className="flex flex-col md:flex-row gap-4">
-          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full">
+          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full">
               <span className="">Photo :</span>
               <input
                 type="text"
                 name="photo"
                 defaultValue={photoBanner}
-                className="flex-1 h-full outline-0 border-0 rounded-md"
+                className="flex-1 p-2 h-full outline-0 border-0 rounded-md"
                 placeholder="Enter Photo URL"
               />
             </label>
@@ -154,13 +154,13 @@ const UpdateSpot = () => {
          
           {/* Location */}
           <div>
-          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md p-2 w-full">
+          <label className="flex items-center gap-2 bg-white border-2 border-[(var(clr-secondary))] rounded-md pl-2 w-full">
               <span className="">Location :</span>
               <input
                 type="text"
                 name="location"
                 defaultValue={location}
-                className="flex-1 h-full outline-0 border-0 rounded-md"
+                className="flex-1 p-2 h-full outline-0 border-0 rounded-md"
                 placeholder="State / District"
               />
             </label>

@@ -29,7 +29,7 @@ const Home = () => {
       <header>
         <Banner></Banner>
 
-        <div className="h-[10vh] bg-[var(--clr-accent)] py-6 hidden lg:flex justify-center items-center">
+        <div className="h-[10vh] bg-[var(--clr-accent)] py-6 hidden md:flex justify-center items-center">
           <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 flex items-center justify-center gap-4 ">
             <div className="flex gap-1 text-sm xl:text-base">
               <input
@@ -39,15 +39,15 @@ const Home = () => {
               />
               <input
                 type="text"
-                placeholder="Where to go?"
+                placeholder="When to go?"
                 className="py-2 rounded px-4 outline-none"
               />
               <input
-                type="text"
-                placeholder="Where to go?"
+                type="number"
+                placeholder="Number  of Members?"
                 className="py-2 rounded px-4 outline-none"
               />
-              <button className="bg-white py-2 px-6 text-[var(--clr-accent)] font-bold hover:bg-[var(--clr-accent)] rounded hover:text-white border-2 hover:border-text-white">
+              <button className="py-2 px-6 text-[var(--clr-accent)] font-bold bg-[var(--clr-accent)] rounded text-white border-2 hover:scale-105 duration-700">
                 Search
               </button>
             </div>
@@ -147,7 +147,7 @@ const Home = () => {
                 <Lottie animationData={loadingAnimation} loop={true} />
               </div>
             )}
-            <div className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 justify-center items-center">
+            <div className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 justify-center items-center">
               <Zoom duration={1200} triggerOnce>
                 {countries.map((country) => (
                   <CountryCard

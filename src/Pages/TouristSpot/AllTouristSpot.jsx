@@ -28,16 +28,16 @@ const AllTouristSpot = () => {
   };
 
   return (
-    <div>
+    <div className="min-height-main">
       {/* header section */}
-      <div className="">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
       <header
-        className="relative text-center h-48 md:h-64 xl:h-80 w-full bg-cover bg-no-repeat bg-center"
+        className="relative text-center h-48 md:h-64 xl:h-80 w-full bg-cover bg-no-repeat bg-center rounded-xl"
         style={{
           backgroundImage: "url(https://i.ibb.co/vxgbFrc/bukhara-banner.jpg)",
         }}
       >
-        <div className="absolute bg-black top-0 w-full h-full opacity-40 "></div>
+        <div className="absolute bg-black top-0 w-full h-full opacity-40 rounded-xl"></div>
         <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center">
         <Zoom duration={1500}>
           <h1 className="text-white z-20">Our Places</h1>
@@ -59,8 +59,9 @@ const AllTouristSpot = () => {
         </div>
       </header>
       </div>
+
       <main>
-        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem]">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem] mt-8 md:mt-12">
           {/* Places */}
           <div className="md:col-span-2 lg:col-span-3 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -80,7 +81,7 @@ const AllTouristSpot = () => {
           </div>
           
           {/* right */}
-          <div className="border border-text-[var(--clr-accent)] shadow-sm bg-white px-4 py-8 md:px-6 md:py-12 space-y-10"> 
+          <div className="border border-text-[var(--clr-accent)] shadow-sm bg-white px-4 py-8 md:px-6 md:py-12 space-y-10 rounded-md"> 
             {/* where */}
             <div className="border-b-2 pb-1">
               <h5 className="font-bold">Where</h5>
