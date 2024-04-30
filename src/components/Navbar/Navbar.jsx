@@ -36,8 +36,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-white opacity-100 z-50">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 flex justify-between items-center py-4 min-h-16">
+    <nav className="bg-white opacity-100">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 flex justify-between items-center py-4">
         {/* nav left */}
         <div>
         <Link to="/" className="w-36 hidden lg:block">

@@ -26,7 +26,21 @@ console.log(touristSpots.length);
   return (
     <div>
       <header>
-        <Banner></Banner>
+               <Banner></Banner>
+      
+  
+        <div className="h-[10vh] bg-[var(--clr-accent)] py-6 hidden lg:flex justify-center items-center">
+          <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 flex items-center justify-center gap-4 ">
+            
+            <div className="flex gap-1 text-sm xl:text-base">
+              <input type="text" placeholder="Where to go?" className="py-2 rounded px-4 outline-none" />
+              <input type="text" placeholder="Where to go?" className="py-2 rounded px-4 outline-none" />
+              <input type="text" placeholder="Where to go?" className="py-2 rounded px-4 outline-none" />
+              <button className="bg-white py-2 px-6 text-[var(--clr-accent)] font-bold hover:bg-[var(--clr-accent)] rounded hover:text-white border-2 hover:border-text-white">Search</button>
+
+            </div>
+          </div>
+        </div>
       </header>
 
       <main>
