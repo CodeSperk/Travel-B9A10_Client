@@ -20,12 +20,10 @@ const Routes = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Home></Home>,
-        loader:() => fetch("https://adventura-api-data.vercel.app/touristSpots")
+        element:<Home></Home>
       },{
         path:"/details/:id",
-        element:<PrivateRout> <TouristSpotDetails></TouristSpotDetails> </PrivateRout>,
-        loader:({params}) => fetch(`https://adventura-api-data.vercel.app/details/${params.id}`)
+        element:<PrivateRout> <TouristSpotDetails></TouristSpotDetails> </PrivateRout>
       },{
         path:"/register",
         element:<Register></Register>
@@ -37,19 +35,16 @@ const Routes = createBrowserRouter([
         element:<PrivateRout> <AddTouristSpot></AddTouristSpot> </PrivateRout>
       },{
         path:"/allSpot",
-        element:<AllTouristSpot></AllTouristSpot>,
-        loader:() => fetch("https://adventura-api-data.vercel.app/touristSpots")
+        element:<AllTouristSpot></AllTouristSpot>
       },{
         path:"/allSpots/:country",
-        element:<CountrySpots></CountrySpots>,
-        loader: ({params}) => fetch(`https://adventura-api-data.vercel.app/allSpots/${params.country}`)
+        element:<CountrySpots></CountrySpots>
       },{
         path:"/myList",
         element:<PrivateRout> <MyList></MyList> </PrivateRout>
       },{
         path:"/update/:id",
-        element:<PrivateRout><UpdateSpot></UpdateSpot></PrivateRout>,
-        loader:({params}) => fetch(`https://adventura-api-data.vercel.app/details/${params.id}`)
+        element:<PrivateRout><UpdateSpot></UpdateSpot></PrivateRout>
       }
     ]
   }

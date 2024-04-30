@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
+  const countryName  = country.country
   return (
     <>
-      <Link to={`/allSpots/${country.country}`}>
+      <Link to={`/allSpots/${countryName}`}>
         {/* Country Card */}
         <div className="relative bg-black rounded-md">
           <img

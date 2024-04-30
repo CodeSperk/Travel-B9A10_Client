@@ -1,27 +1,46 @@
+import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import { IoCalendarNumberOutline, IoLocationSharp } from "react-icons/io5";
 import { MdGroupAdd, MdOutlineEmojiTransportation } from "react-icons/md";
 import { RiGroupLine } from "react-icons/ri";
 import { TfiAlarmClock } from "react-icons/tfi";
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import loadingAnimation from "../../assets/loading.json";
 
 const TouristSpotDetails = () => {
-  const touristSpot = useLoaderData();  
-  const {
-    photoBanner,
-    placeName,
-    country,
-    location,
-    description,
-    cost,
-    season,
-    travelTime,
-    totalVisitor
-  } = touristSpot;
+const {id} = useParams();
+console.log(id);
+const [loading, setLoading] = useState(false);
+const [spotData, setSpotData] = useState([]);
+const { photoBanner, placeName, country,
+  location,
+  description,
+  cost,
+  season,
+  travelTime,
+  totalVisitor
+} = spotData;
+
+useEffect(() => {
+  setLoading(true);
+  fetch(`https://adventura-api-data.vercel.app/details/${id}`)
+  .then(res => res.json())
+  .then(data => {
+  setLoading(false);
+    setSpotData(data);
+  })
+},[id])
 
   return (
     <div>
-<header className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+  {
+       loading ? ( <div className="flex justify-center items-center h-[90vh] w-28 mx-auto text-center">
+      
+       <Lottie animationData={loadingAnimation} loop={true} />
+     </div> ) : (
+        <>
+          <header className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
 <div
         className="relative text-center h-64 md:h-80 xl:h-96 w-full bg-cover bg-no-repeat bg-center rounded-xl"
         style={{
@@ -124,6 +143,10 @@ const TouristSpotDetails = () => {
 
           </div>
       </main>
+        </>
+     )
+     }
+
     </div>
   );
 };

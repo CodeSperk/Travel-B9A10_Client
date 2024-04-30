@@ -1,10 +1,28 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import loadingAnimation from '../../assets/loading.json';
 
 const UpdateSpot = () => {
-  const spot = useLoaderData();
-  const {_id, placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description} = spot;
+  const {id} = useParams();
+  const [loading, setLoading] = useState(false);
+  const [updateData, setUpdateData] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://adventura-api-data.vercel.app/details/${id}`)
+    .then(res => res.json())
+    .then(data => {
+    setLoading(false);
+      setUpdateData(data);
+    })
+  },[id]);
+
+  
+  const {_id, placeName, country, location, season, travelTime, totalVisitor, photoBanner, cost, description} = updateData;
+
 
   const handleUpdateSpot = (e) => {
     e.preventDefault();
@@ -47,7 +65,13 @@ const UpdateSpot = () => {
   }
   return (
     <div>
-      <div
+      {
+       loading ? ( <div className="flex justify-center items-center h-[90vh] w-28 mx-auto text-center">
+      
+       <Lottie animationData={loadingAnimation} loop={true} />
+     </div> ) : (
+        <>
+ <div
         className="bg-cover bg-no-repeat bg-center py-12 md:py-20 px-4 md:px-12"
         style={{
           backgroundImage: "url(https://i.ibb.co/9hwwt0v/banner-3.jpg)",
@@ -186,6 +210,9 @@ const UpdateSpot = () => {
           />
         </form>
       </div>
+        </>)
+}
+     
     </div>
   );
 };

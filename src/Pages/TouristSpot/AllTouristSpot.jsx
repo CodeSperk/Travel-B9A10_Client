@@ -1,14 +1,28 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
 import AllSpotsCards from "./AllSpotsCards";
 import { IoCalendarNumberOutline, IoLocationSharp } from "react-icons/io5";
 import { RiGroupLine } from "react-icons/ri";
 import { Zoom } from "react-awesome-reveal";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../assets/loading.json";
 
 const AllTouristSpot = () => {
-  const allSpots = useLoaderData();
   const [showAll, setShowAll] = useState(false);
-  const [spotsToDisplay, setSpotsToDisplay] = useState(allSpots);
+  const [loading, setLoading] = useState(false);
+  const [spotsToDisplay, setSpotsToDisplay] = useState([]);
+  
+  
+  // To load spotsData
+  useEffect(() => {
+    setLoading(true);
+    fetch("https://adventura-api-data.vercel.app/touristSpots")
+    .then(res => res.json())
+    .then(data => {
+      setLoading(false);
+      setSpotsToDisplay(data);
+    })
+  }, [])
+
 
   let spotsLength = 6;
   if (showAll) {
@@ -19,16 +33,22 @@ const AllTouristSpot = () => {
     const selectedValue = e.target.value;
     let sorted = [...spotsToDisplay];
     if(selectedValue === "ascending"){
-      sorted.sort((a, b) => parseInt(a.cost)- parseInt(b.cost));
+      sorted.sort((a, b) => parseInt(a.cost) - parseInt(b.cost));
     }
     if(selectedValue === "descending"){
-      sorted.sort((a, b) => parseInt(b.cost)- parseInt(a.cost));
+      sorted.sort((a, b) => parseInt(b.cost) - parseInt(a.cost));
     }
     setSpotsToDisplay(sorted);
   };
 
   return (
     <div className="min-height-main">
+
+{
+            loading ? ( <div className="flex justify-center items-center h-[90vh] w-28 mx-auto text-center">
+            {" "}
+            <Lottie animationData={loadingAnimation} loop={true} />
+          </div> ) : ( <>
       {/* header section */}
       <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
       <header
@@ -62,6 +82,9 @@ const AllTouristSpot = () => {
 
       <main>
         <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem] mt-8 md:mt-12">
+
+         
+
           {/* Places */}
           <div className="md:col-span-2 lg:col-span-3 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -113,6 +136,11 @@ const AllTouristSpot = () => {
           </div>
         </section>
       </main>
+          
+          </>  )
+          }
+
+
     </div>
   );
 };

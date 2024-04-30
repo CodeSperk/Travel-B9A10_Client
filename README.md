@@ -6,6 +6,6 @@
 - Full Stack Website.
 - Responsive for all devices.
 - Secure user authentication with registration, login, and logout options via email-password, Google, and GitHub methods.
-- User will be able to add , update & delete spots and store them in mongodb database.
-- Ensured certain routes are protected. Authenticated users are allowed to access.
+- Users can add, update, and delete spots, with data stored in MongoDB database.
+- Protected routes ensure that only authenticated users can access certain areas of the website.
 - Filtered Spots in different category. Like: Country wise spots, all spots, popular spots etc.

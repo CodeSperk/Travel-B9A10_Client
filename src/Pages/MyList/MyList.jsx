@@ -75,10 +75,15 @@ const MyList = () => {
                     <td>{spot.location}</td>
                     <td>{spot.travelTime}</td>
                     <td>$ {spot.cost}</td>
-                    <td><Link to={`/update/${spot._id}`}><LuFileEdit className="text-xl text-[var(--clr-accent)] ml-2 cursor-pointer hover:scale-150 duration-500" title="Update"/>   
-                    </Link></td>
 
-                    <td><MdDeleteOutline className="text-2xl text-red-500 ml-2 cursor-pointer hover:scale-150 duration-500" title="Delete" onClick={() => handleSpotDelete(spot._id)}/></td>
+                    <td>
+                      <Link to={`/update/${spot._id}`}><LuFileEdit className="text-xl text-[var(--clr-accent)] ml-2 cursor-pointer hover:scale-150 duration-500" title="Update"/>   
+                      </Link>
+                    </td>
+
+                    <td>
+                      <MdDeleteOutline className="text-2xl text-red-500 ml-2 cursor-pointer hover:scale-150 duration-500" title="Delete" onClick={() => handleSpotDelete(spot._id)}/>
+                    </td>
                   </tr>
                 ))}
               </tbody>

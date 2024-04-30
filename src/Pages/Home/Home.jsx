@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import PopularTouristSpot from "./PopularTouristSpot";
 import { useEffect, useState } from "react";
@@ -6,14 +5,25 @@ import CountryCard from "./CountryCard";
 import Services from "./Services";
 import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/loading.json";
-import { Slide, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 
 const Home = () => {
-  const touristSpots = useLoaderData();
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [spotLoading, setSpotLoading] = useState(false);
+  const [touristSpots, setTouristSpots] = useState([]);
+  
+  // To load spotsData
+  useEffect(() => {
+    setSpotLoading(true);
+    fetch("https://adventura-api-data.vercel.app/touristSpots")
+    .then(res => res.json())
+    .then(data => {
+      setSpotLoading(false);
+      setTouristSpots(data);
+    })
+  }, [])
 
-  console.log(touristSpots.length);
   useEffect(() => {
     setLoading(true);
     fetch("https://adventura-api-data.vercel.app/countries")
@@ -59,17 +69,15 @@ const Home = () => {
         {/* Tourist spot section */}
 
         <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
-          {touristSpots.length === 0 ? (
-            <div className="flex justify-center items-center h-10 w-28 mx-auto">
-              {" "}
-              <Lottie animationData={loadingAnimation} loop={true} />
-            </div>
-          ) : (
-            <>
+          
               <p className="text-center text-lg">Tourist Spots</p>
               <h2 className="text-center ">Explore Popular Destinations</h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 md:mt-12">
+        {
+       spotLoading ? <div className="flex justify-center items-center h-[600px] w-28 mx-auto text-center">
+       {" "}
+       <Lottie animationData={loadingAnimation} loop={true} />
+     </div> : <>
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 md:mt-12">
                 {touristSpots.slice(0, 6).map((spot) => (
                   <PopularTouristSpot
                     key={spot._id}
@@ -77,8 +85,10 @@ const Home = () => {
                   ></PopularTouristSpot>
                 ))}
               </div>
-            </>
-          )}
+     </>
+     }
+
+              
         </section>
 
         {/* Discount Section */}
@@ -141,13 +151,13 @@ const Home = () => {
             <p className="text-center text-lg">Countries</p>
             <h2 className="text-center">Explore Your Destination</h2>
 
-            {loading && (
-              <div className="flex justify-center items-center h-10 w-28 mx-auto">
+            {loading ? (
+              <div className="flex justify-center items-center h-[600px] w-28 mx-auto">
                 {" "}
                 <Lottie animationData={loadingAnimation} loop={true} />
               </div>
-            )}
-            <div className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 justify-center items-center">
+            ) : (
+              <div className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 justify-center items-center">
               <Zoom duration={1200} triggerOnce>
                 {countries.map((country) => (
                   <CountryCard
@@ -157,6 +167,9 @@ const Home = () => {
                 ))}
               </Zoom>
             </div>
+            )
+          }
+            
           </div>
         </section>
 
