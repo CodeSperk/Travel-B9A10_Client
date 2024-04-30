@@ -50,9 +50,9 @@ const AllTouristSpot = () => {
             <Lottie animationData={loadingAnimation} loop={true} />
           </div> ) : ( <>
       {/* header section */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16">
+      <div className="max-w-[1440px] mx-auto md:px-12 xl:px-16">
       <header
-        className="relative text-center h-48 md:h-64 xl:h-80 w-full bg-cover bg-no-repeat bg-center rounded-xl"
+        className="relative text-center h-48 md:h-64 xl:h-80 w-full bg-cover bg-no-repeat bg-center"
         style={{
           backgroundImage: "url(https://i.ibb.co/vxgbFrc/bukhara-banner.jpg)",
         }}
@@ -81,7 +81,7 @@ const AllTouristSpot = () => {
       </div>
 
       <main>
-        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem] mt-8 md:mt-12">
+        <section className="max-w-[1440px] mx-auto px-4 md:px-12 xl:px-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4 items-start mb-[4rem] md:mb-[7rem] mt-12">
 
          
 
