@@ -30,7 +30,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://adventura-client.web.app/${id}`, {
+        fetch(`https://adventura-api-data.vercel.app/${id}`, {
           method: "DELETE"
         })
         .then(res => res.json())

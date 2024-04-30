@@ -1,3 +1,4 @@
+import { Zoom } from "react-awesome-reveal";
 import { IoCalendarNumberOutline, IoLocationSharp } from "react-icons/io5";
 import { MdGroupAdd, MdOutlineEmojiTransportation } from "react-icons/md";
 import { RiGroupLine } from "react-icons/ri";
@@ -29,8 +30,9 @@ const TouristSpotDetails = () => {
       >
         <div className="absolute bg-black top-0 w-full h-full opacity-40 rounded-xl"></div>
         <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center">
+        <Zoom duration={1500}>
           <h1 className="text-white z-20">{placeName}</h1>
-
+        </Zoom>
          
       
         </div>

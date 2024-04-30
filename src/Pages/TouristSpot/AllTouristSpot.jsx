@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import AllSpotsCards from "./AllSpotsCards";
 import { IoCalendarNumberOutline, IoLocationSharp } from "react-icons/io5";
 import { RiGroupLine } from "react-icons/ri";
+import { Zoom } from "react-awesome-reveal";
 
 const AllTouristSpot = () => {
   const allSpots = useLoaderData();
@@ -38,6 +39,7 @@ const AllTouristSpot = () => {
       >
         <div className="absolute bg-black top-0 w-full h-full opacity-40 "></div>
         <div className="absolute w-full h-full flex flex-col gap-4 justify-center items-center">
+        <Zoom duration={1500}>
           <h1 className="text-white z-20">Our Places</h1>
 
           {/* to sort by average_cost */}
@@ -53,6 +55,7 @@ const AllTouristSpot = () => {
             <option value="ascending">Average Cost Low to High</option>
             <option value="descending">Average Cost High to Low</option>
           </select>
+        </Zoom>
         </div>
       </header>
       </div>
