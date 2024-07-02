@@ -1,7 +1,5 @@
 # Website name :  Travel
 
-### Live Site Url [Travel](https://adventura-client.web.app)
-
 ## Features
 - Full Stack Website.
 - Responsive for all devices.
@@ -10,6 +8,17 @@
 - Protected routes ensure that only authenticated users can access certain areas of the website.
 - Filtered Spots in different category. Like: Country wise spots, all spots, popular spots etc.
 
+### Techonologies Used
+   - React JS
+   - Tailwind CSS
+   - Express JS
+   - Firebase
+   - MongoDB
+   - Daisy UI
+   - AOS etc.
 
-
-## Web Site Category Name : Central Asia
+### Steps to run locally
+   - Clone the repository : git clone https://github.com/CodeSperk/Travel-B9A10_Client.git
+   - Navigate to the project directory using command
+   - Install dependencies : npm install / npm i
+   - Run the project      : npm run dev
